@@ -1,0 +1,28 @@
+body {
+  // background-color: red;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  min-height: 100vh;
+}
+
+.seed-viewport {
+  // height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  overflow: scroll;
+}
+
+.dirt {
+  height: 1000px;
+  width: 100%;
+  background-color: rgb(46, 34, 34);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// .scroll-space {
+
+// }
