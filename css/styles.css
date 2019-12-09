@@ -3,21 +3,196 @@ body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  min-height: 100vh;
+}
+
+.pot-metal {
+  border: 2rem solid;
+  border-top: 0;
+  height: 25vh;
+  max-width: 24rem;
+  margin: auto;
+  color: silver;
+  -webkit-transform: translateY(-0.5rem);
+          transform: translateY(-0.5rem);
 }
 
 .seed-viewport {
   min-height: 100vh;
+}
+
+.sky {
+  height: 33vh;
+  width: 100%;
+  background-color: #86bfee;
+}
+
+.pot-dirt {
+  height: 100%;
+  width: 100%;
   position: relative;
-  overflow: scroll;
 }
 
 .dirt {
-  height: 1000px;
-  width: 100%;
   background-color: #2e2222;
-  position: absolute;
-  top: 0;
-  left: 0;
+  fill: #2e2222;
+}
+
+.seed-keyframe {
+  -webkit-animation-name: growStem;
+          animation-name: growStem;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes growStem {
+  50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(-33vh);
+            transform: translateY(-33vh);
+  }
+  100% {
+    -webkit-transform: translateY(-33vh);
+            transform: translateY(-33vh);
+  }
+}
+
+@keyframes growStem {
+  50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(-33vh);
+            transform: translateY(-33vh);
+  }
+  100% {
+    -webkit-transform: translateY(-33vh);
+            transform: translateY(-33vh);
+  }
+}
+
+.seed-stem {
+  stroke: #be4646;
+  stroke-width: 2;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  -webkit-animation: growRoot 10s infinite;
+          animation: growRoot 10s infinite;
+  animation-direction: reverse;
+}
+
+.port {
+  -webkit-animation-name: openPort;
+          animation-name: openPort;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+@-webkit-keyframes openPort {
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes openPort {
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.root {
+  margin-top: 0.5rem;
+  -webkit-animation-name: growRoot;
+          animation-name: growRoot;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  fill: none;
+  opacity: 0;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+@-webkit-keyframes growRoot {
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  25% {
+    stroke-dashoffset: 600;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes growRoot {
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  25% {
+    stroke-dashoffset: 600;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+.water {
+  border-color: #136dd4;
+}
+
+.water.root {
+  stroke: #136dd4;
+}
+
+.power {
+  border-color: #be4646;
+}
+
+.power.root {
+  fill: #be4646;
+}
+
+.chlora {
+  border-color: #8eda8e;
+}
+
+.chlora.root {
+  fill: #8eda8e;
 }
 /*# sourceMappingURL=styles.css.map */

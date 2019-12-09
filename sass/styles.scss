@@ -1,28 +1,167 @@
+$water: #136dd4;
+$power: #be4646;
+$chlora: #8eda8e;
+
+$seed: #016b01;
+$dirt: #2e2222;
+$sky: #86bfee;
+
+$total-timeline: 10s; //will use scrolling length
+
 body {
   // background-color: red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
-  min-height: 100vh;
+.pot-metal {
+  border: 2rem solid;
+  border-top: 0;
+
+  height: 25vh;
+  max-width: 24rem;
+  margin: auto;
+
+  color: silver;
+  transform: translateY(-0.5rem);
 }
 
 .seed-viewport {
-  // height: 100vh;
   min-height: 100vh;
+}
+
+.sky {
+  height: 33vh;
+  width: 100%;
+  background-color: $sky;
+}
+.pot-dirt {
+  height: 100%;
+  width: 100%;
   position: relative;
-  overflow: scroll;
 }
 
 .dirt {
-  height: 1000px;
-  width: 100%;
-  background-color: rgb(46, 34, 34);
-  position: absolute;
-  top: 0;
-  left: 0;
+  background-color: $dirt;
+  fill: $dirt;
 }
 
-// .scroll-space {
+.seed-keyframe {
+  animation-name: growStem;
+  animation-duration: $total-timeline;
+  animation-iteration-count: infinite;
+}
 
-// }
+@keyframes growStem {
+  50% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-33vh);
+  }
+  100% {
+    transform: translateY(-33vh);
+  }
+}
+
+.seed-stem {
+  stroke: $power;
+  stroke-width: 2;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: growRoot $total-timeline infinite;
+  animation-direction: reverse;
+}
+
+.seed {
+}
+
+.port {
+  // position: relative;
+  // width: 0.66rem;
+  // height: 0.66rem;
+
+  // border-width: 0.25rem;
+  // border-style: solid;
+  // border-radius: 100%;
+
+  // background-color: $dirt;
+
+  animation-name: openPort;
+  animation-duration: $total-timeline;
+  animation-iteration-count: infinite;
+
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+}
+
+@keyframes openPort {
+  20% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.root {
+  margin-top: 0.5rem;
+  // border-width: 0.2rem;
+  // width: auto;
+  // height: 100%;
+  // border-style: solid;
+
+  animation-name: growRoot;
+  // after ports open
+  animation-duration: $total-timeline;
+  animation-iteration-count: infinite;
+
+  transform-origin: top center;
+
+  fill: none;
+  // stroke-linecap: round;
+  opacity: 0;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+
+  transform: scale(1);
+}
+
+@keyframes growRoot {
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  25% {
+    stroke-dashoffset: 600;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+.water {
+  border-color: $water;
+  &.root {
+    stroke: $water;
+  }
+}
+
+.power {
+  border-color: $power;
+  &.root {
+    fill: $power;
+  }
+}
+
+.chlora {
+  border-color: $chlora;
+  &.root {
+    fill: $chlora;
+  }
+}
