@@ -6,7 +6,7 @@ $seed: #016b01;
 $dirt: #2e2222;
 $sky: #86bfee;
 
-$total-timeline: 5s; //will use scrolling length
+$total-timeline: 10s; //will use scrolling length
 
 body {
   // background-color: red;
@@ -17,10 +17,12 @@ body {
 
 .pot-metal {
   position: relative;
+  display: flex;
+  justify-content: center;
   border: 2rem solid;
   border-top: 0;
 
-  height: 25vh;
+  height: 100px;
   max-width: 24rem;
   margin: auto;
 
@@ -33,9 +35,10 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   // align-items: flex-end;
-  min-height: 100vh;
+  min-height: 568px;
   width: 100%;
-  height: 10vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sky {
@@ -45,9 +48,9 @@ body {
 }
 
 .pot-dirt {
-  height: 66vh;
-  width: 100%;
   position: relative;
+  height: 268px;
+  width: 100%;
   animation-name: shortenGround;
   animation-duration: $total-timeline;
   animation-iteration-count: infinite;
@@ -57,20 +60,28 @@ body {
   fill: $dirt;
 }
 @keyframes shortenGround {
+  30% {
+    height: 268px;
+  }
   to {
-    height: 10vh;
+    height: 100px;
   }
 }
 
 .seed-keyframe {
   position: absolute;
-  height: 568px;
-  width: 100%;
+  // height: 568px;
+  // width: 100%;
   bottom: 0;
-  left: 0;
+  // left: 0;
+  // right: 0;
+  margin: auto;
   overflow: hidden;
+
   svg {
-    transform: translateY(33vh);
+    width: 320px;
+    height: 568px;
+    transform: translateY(375px);
     animation-name: growStem;
     animation-duration: $total-timeline;
     animation-iteration-count: infinite;
@@ -80,7 +91,7 @@ body {
 
 @keyframes growStem {
   25% {
-    transform: translateY(33vh);
+    transform: translateY(375px);
   }
   90% {
     transform: translateY(0);
@@ -113,7 +124,7 @@ body {
 }
 
 @keyframes openPort {
-  20% {
+  10% {
     transform: scale(1);
   }
   to {
@@ -123,10 +134,6 @@ body {
 
 .root {
   margin-top: 0.5rem;
-  // border-width: 0.2rem;
-  // width: auto;
-  // height: 100%;
-  // border-style: solid;
 
   animation-name: growRoot;
   // after ports open
@@ -141,21 +148,22 @@ body {
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
 
-  transform: scale(1);
+  // transform: scale(1);
 }
 
 @keyframes growRoot {
-  10% {
+  2% {
     opacity: 0;
   }
-  15% {
+  5% {
     opacity: 1;
   }
-  25% {
+  10% {
     stroke-dashoffset: 600;
   }
   to {
     opacity: 1;
+    stroke-width: 8;
     stroke-dashoffset: 0;
   }
 }
