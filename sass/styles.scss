@@ -1,12 +1,13 @@
-$water: #136dd4;
-$power: #be4646;
-$chlora: #8eda8e;
+$water: #009cdd;
+$power: #c01714;
+$chlora: #6a8433;
+$solar: #ffdb00;
 
-$seed: #016b01;
-$dirt: #2e2222;
+$seed: #004124;
+$dirt: #3f3025;
 $sky: #86bfee;
 
-$total-timeline: 10s; //will use scrolling length
+$total-timeline: 50s; //will use scrolling length
 
 body {
   // background-color: red;
@@ -111,6 +112,7 @@ body {
 }
 
 .seed {
+  fill: $seed;
 }
 
 .port {
@@ -121,6 +123,21 @@ body {
   transform-box: fill-box;
   transform-origin: center;
   transform: scale(0);
+
+  &.hole {
+    fill: $dirt;
+    stroke-width: 3;
+  }
+
+  &.water {
+    stroke: $water;
+  }
+  &.power {
+    stroke: $power;
+  }
+  &.chlora {
+    stroke: $chlora;
+  }
 }
 
 @keyframes openPort {
@@ -168,23 +185,19 @@ body {
   }
 }
 
-.water {
-  border-color: $water;
-  &.root {
+.root {
+  .water {
+    border-color: $water;
     stroke: $water;
   }
-}
 
-.power {
-  border-color: $power;
-  &.root {
-    fill: $power;
+  .chlora {
+    border-color: $chlora;
+    stroke: $chlora;
   }
-}
 
-.chlora {
-  border-color: $chlora;
-  &.root {
-    fill: $chlora;
+  .power {
+    border-color: $power;
+    stroke: $power;
   }
 }

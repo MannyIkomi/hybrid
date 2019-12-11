@@ -52,15 +52,15 @@ body {
   width: 100%;
   -webkit-animation-name: shortenGround;
           animation-name: shortenGround;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
 
 .dirt {
-  background-color: #2e2222;
-  fill: #2e2222;
+  background-color: #3f3025;
+  fill: #3f3025;
 }
 
 @-webkit-keyframes shortenGround {
@@ -95,8 +95,8 @@ body {
           transform: translateY(375px);
   -webkit-animation-name: growStem;
           animation-name: growStem;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
@@ -132,20 +132,24 @@ body {
 }
 
 .seed-stem {
-  stroke: #be4646;
+  stroke: #c01714;
   stroke-width: 2;
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
-  -webkit-animation: growRoot 10s infinite;
-          animation: growRoot 10s infinite;
+  -webkit-animation: growRoot 50s infinite;
+          animation: growRoot 50s infinite;
   animation-direction: reverse;
+}
+
+.seed {
+  fill: #004124;
 }
 
 .port {
   -webkit-animation-name: openPort;
           animation-name: openPort;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   transform-box: fill-box;
@@ -153,6 +157,23 @@ body {
           transform-origin: center;
   -webkit-transform: scale(0);
           transform: scale(0);
+}
+
+.port.hole {
+  fill: #3f3025;
+  stroke-width: 3;
+}
+
+.port.water {
+  stroke: #009cdd;
+}
+
+.port.power {
+  stroke: #c01714;
+}
+
+.port.chlora {
+  stroke: #6a8433;
 }
 
 @-webkit-keyframes openPort {
@@ -181,8 +202,8 @@ body {
   margin-top: 0.5rem;
   -webkit-animation-name: growRoot;
           animation-name: growRoot;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-transform-origin: top center;
@@ -227,27 +248,18 @@ body {
   }
 }
 
-.water {
-  border-color: #136dd4;
+.root .water {
+  border-color: #009cdd;
+  stroke: #009cdd;
 }
 
-.water.root {
-  stroke: #136dd4;
+.root .chlora {
+  border-color: #6a8433;
+  stroke: #6a8433;
 }
 
-.power {
-  border-color: #be4646;
-}
-
-.power.root {
-  fill: #be4646;
-}
-
-.chlora {
-  border-color: #8eda8e;
-}
-
-.chlora.root {
-  fill: #8eda8e;
+.root .power {
+  border-color: #c01714;
+  stroke: #c01714;
 }
 /*# sourceMappingURL=styles.css.map */
