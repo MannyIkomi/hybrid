@@ -262,4 +262,12 @@ body {
   border-color: #c01714;
   stroke: #c01714;
 }
+
+.bloom {
+  position: absolute;
+  left: 0;
+  top: -300px;
+  width: 100%;
+  height: auto;
+}
 /*# sourceMappingURL=styles.css.map */

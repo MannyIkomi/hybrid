@@ -1,7 +1,7 @@
 $water: #009cdd;
 $power: #c01714;
 $chlora: #6a8433;
-$solar: #ffdb00;
+$solar: #fac141;
 
 $seed: #004124;
 $dirt: #3f3025;
@@ -200,4 +200,13 @@ body {
     border-color: $power;
     stroke: $power;
   }
+}
+
+.bloom {
+  position: absolute;
+  left: 0;
+  top: -300px;
+
+  width: 100%;
+  height: auto;
 }
