@@ -78,8 +78,8 @@
               <style>
                 <![CDATA[.F{fill:none}.G{stroke:#ff8c36}.H{stroke-miterlimit:1}.I{fill:#ffd44a}.J{stroke-width:1.333}.K{stroke-width:5.333}]]>
               </style>
-              <g>
-                <path d="M145.42 104.555v63.265" class="F G H K" />
+              <g class="petal">
+                <path d="M145.42 104.555v63.265" class="F G H K arm" />
                 <use xlink:href="#B" class="I" />
                 <use xlink:href="#B" class="F G H J" />
                 <use xlink:href="#C" class="I" />
@@ -113,12 +113,11 @@
                 <use xlink:href="#B" x="13.59" y="23.54" class="I" />
                 <use xlink:href="#B" x="13.59" y="23.54" class="F G H J" />
                 <use xlink:href="#D" class="I" />
-                <g class="F G H">
-                  <use xlink:href="#D" class="J" />
-                  <path d="M145.523 230.59v-63.265" class="K" />
-                </g>
+                <use xlink:href="#D" class="J" />
               </g>
-              <g>
+              <!-- <g class="F G H"></g> -->
+              <g class="petal">
+                <path d="M145.523 230.59v-63.265" class="F G H K arm" />
                 <use xlink:href="#C" y="290.807" class="I" />
                 <use xlink:href="#C" y="290.807" class="F G H J" />
                 <use xlink:href="#B" y="290.807" class="I" />
@@ -152,11 +151,11 @@
                 <use xlink:href="#C" x="-13.59" y="267.268" class="I" />
                 <use xlink:href="#C" x="-13.59" y="267.268" class="F G H J" />
                 <use xlink:href="#C" x="-27.18" y="243.73" class="I" />
-                <g class="F G H">
-                  <use xlink:href="#C" x="-27.18" y="243.73" class="J" />
-                  <path d="M200.032 136.04l-54.8 31.614" class="K" />
-                </g>
-              </g>
+                <use xlink:href="#C" x="-27.18" y="243.73" class="J" />
+                <!-- <g class="F G H"></g> -->
+              </g class="petal">
+              <g class="petal">
+                  <path d="M200.032 136.04l-54.8 31.614" class="F G H K arm" />
               <use xlink:href="#E" class="I" />
               <use xlink:href="#E" class="F G H J" />
               <use xlink:href="#F" class="I" />
@@ -192,10 +191,12 @@
               <use xlink:href="#E" x="-13.598" y="23.533" class="I" />
               <use xlink:href="#E" x="-13.598" y="23.533" class="F G H J" />
               <use xlink:href="#E" x="-27.196" y="47.067" class="I" />
-              <g class="F G H">
-                <use xlink:href="#E" x="-27.196" y="47.067" class="J" />
-                <path d="M90.912 199.108l54.8-31.614" class="K" />
-              </g>
+              <use xlink:href="#E" x="-27.196" y="47.067" class="F G H J" />
+            </g>
+            <g class="petal">
+            <path d="M90.912 199.108l54.8-31.614" class="F G H K arm" />
+              <!-- <g class="F G H">
+              </g> -->
               <use xlink:href="#F" x="-251.894" y="145.318" class="I" />
               <use xlink:href="#F" x="-251.894" y="145.318" class="F G H J" />
               <use xlink:href="#E" x="-251.895" y="145.317" class="I" />
@@ -229,10 +230,13 @@
               <use xlink:href="#L" class="I" />
               <use xlink:href="#L" class="F G H J" />
               <use xlink:href="#H" x="-170.323" y="51.19" class="I" />
-              <g class="F G H">
-                <use xlink:href="#H" x="-170.323" y="51.19" class="J" />
-                <path d="M200.05 199.075l-54.768-31.67" class="K" />
-              </g>
+              <use xlink:href="#H" x="-170.323" y="51.19" class="J" />
+              <path d="M200.05 199.075l-54.768-31.67" class="F G H K arm" />
+            </g>
+              <!-- <g class="F G H">
+              </g> -->
+              <g class="petal">
+              <path d="M90.893 136.072l54.768 31.67" class="F G H K arm" />
               <use xlink:href="#M" class="I" />
               <use xlink:href="#M" class="F G H J" />
               <use xlink:href="#N" class="I" />
@@ -266,10 +270,11 @@
               <use xlink:href="#M" x="-27.18" y="-0.018" class="I" />
               <use xlink:href="#M" x="-27.18" y="-0.018" class="F G H J" />
               <use xlink:href="#M" x="-54.36" y="-0.036" class="I" />
-              <g class="F G H">
-                <use xlink:href="#M" x="-54.36" y="-0.036" class="J" />
-                <path d="M90.893 136.072l54.768 31.67" class="K" />
-              </g>
+              <use xlink:href="#M" x="-54.36" y="-0.036" class="J" />
+            </g>
+              <!-- <g class="F G H">
+              </g> -->
+              <g class="petal">
               <use xlink:href="#O" class="I" />
               <use xlink:href="#O" class="F G H J" />
               <use xlink:href="#P" class="I" />
@@ -304,6 +309,7 @@
               <use xlink:href="#R" class="F G H J" />
               <use xlink:href="#N" x="-197.388" y="-145.538" class="I" />
               <use xlink:href="#N" x="-197.388" y="-145.538" class="F G H J" />
+            </g>
               <circle cx="145.485" cy="167.327" r="40.479" fill="#3f3025" />
               <path
                 d="M145.487 188.196l4.684-26.345c4.465 0 5.873.5 6.077 2.488a10.531 10.531 0 0 0 4.506-3.385 33.103 33.103 0 0 0-11.819-2.855l-3.456 4.2h.008l-3.456-4.2a33.099 33.099 0 0 0-11.818 2.855 10.524 10.524 0 0 0 4.506 3.385c.205-2 1.6-2.488 6.046-2.5zm-.002-31.314a38.596 38.596 0 0 1 15.804 3.171 12.834 12.834 0 0 0 .938-1.937 44.593 44.593 0 0 0-33.484 0 16.197 16.197 0 0 0 .938 1.937 38.592 38.592 0 0 1 15.804-3.171z"
