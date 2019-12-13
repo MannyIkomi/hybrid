@@ -205,15 +205,19 @@ body {
 .bloom {
   position: absolute;
   left: 0;
-  top: -400px;
+  top: -225px;
 
   width: 100%;
   height: auto;
+  .center {
+    // brown center
+  }
 }
 
 .arm {
+  // orange
 }
 
 .petal {
-  // display: none;
+  // opacity: 50%;
 }
