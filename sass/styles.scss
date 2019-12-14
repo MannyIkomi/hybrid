@@ -1,7 +1,8 @@
 $water: #009cdd;
 $power: #c01714;
 $chlora: #6a8433;
-$solar: #fac141;
+$solar: #ffd44a;
+$orange: #ff8c36;
 
 $seed: #004124;
 $dirt: #3f3025;
@@ -58,7 +59,7 @@ body {
 }
 .dirt {
   background-color: $dirt;
-  fill: $dirt;
+  // fill: $dirt;
 }
 @keyframes shortenGround {
   30% {
@@ -205,19 +206,74 @@ body {
 .bloom {
   position: absolute;
   left: 0;
-  top: -225px;
+  // top: -225px;
+  bottom: 0;
 
   width: 100%;
   height: auto;
+
+  transform: scale(1);
   .center {
-    // brown center
+    fill: $dirt;
+  }
+}
+
+@keyframes growBloom {
+  from {
+    transform: scale(0);
+  }
+  from {
+    transform: scale(1);
   }
 }
 
 .arm {
-  // orange
+  stroke: $orange;
+  stroke-width: 5.333;
+}
+.petal {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation-name: panelTwist;
+  animation-duration: $total-timeline / 8;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+
+  .panel {
+    fill: $solar;
+    stroke: #ff8c36;
+    stroke-miterlimit: 1;
+    stroke-width: 1.333;
+    // fill: blue;
+  }
+}
+.tesla {
+  // fill: $solar;
+  filter: drop-shadow(10px 5px 5px red);
 }
 
-.petal {
-  // opacity: 50%;
+@keyframes centerTwist {
+  25% {
+    transform: rotateY(-10deg) rotateX(-10deg);
+  }
+  75% {
+    transform: rotateY(10deg) rotateX(-10deg);
+  }
+  to {
+    transform: initial;
+  }
+}
+
+@keyframes panelTwist {
+  25% {
+    transform: rotateY(-20deg) rotateX(-20deg);
+  }
+  75% {
+    transform: rotateY(20deg) rotateX(-20deg);
+  }
+  to {
+    transform: initial;
+  }
 }
