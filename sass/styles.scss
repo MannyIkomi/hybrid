@@ -116,6 +116,26 @@ body {
   fill: $seed;
 }
 
+.seed-back {
+  transform-box: fill-box;
+  transform: rotateX(-90deg);
+
+  animation-name: rotateSeed;
+  animation-duration: $total-timeline;
+  animation-iteration-count: infinite;
+
+  fill: $seed;
+}
+
+@keyframes rotateSeed {
+  75% {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: initial;
+  }
+}
+
 .port {
   animation-name: openPort;
   animation-duration: $total-timeline;
@@ -206,23 +226,31 @@ body {
 .bloom {
   position: absolute;
   left: 0;
-  // top: -225px;
-  bottom: 0;
+  bottom: 225px;
 
   width: 100%;
   height: auto;
 
-  transform: scale(1);
-  .center {
-    fill: $dirt;
-  }
+  transform: scale(0);
+
+  animation-name: growBloom;
+  animation-duration: $total-timeline;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+.center {
+  fill: $dirt;
 }
 
 @keyframes growBloom {
-  from {
+  70% {
     transform: scale(0);
   }
-  from {
+  80% {
+    transform: scale(1);
+  }
+  100% {
     transform: scale(1);
   }
 }
@@ -231,6 +259,7 @@ body {
   stroke: $orange;
   stroke-width: 5.333;
 }
+
 .petal {
   transform-box: fill-box;
   transform-origin: center;

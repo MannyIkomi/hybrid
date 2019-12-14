@@ -144,6 +144,41 @@ body {
   fill: #004124;
 }
 
+.seed-back {
+  transform-box: fill-box;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+  -webkit-animation-name: rotateSeed;
+          animation-name: rotateSeed;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  fill: #004124;
+}
+
+@-webkit-keyframes rotateSeed {
+  75% {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  to {
+    -webkit-transform: initial;
+            transform: initial;
+  }
+}
+
+@keyframes rotateSeed {
+  75% {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  to {
+    -webkit-transform: initial;
+            transform: initial;
+  }
+}
+
 .port {
   -webkit-animation-name: openPort;
           animation-name: openPort;
@@ -265,34 +300,50 @@ body {
 .bloom {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 225px;
   width: 100%;
   height: auto;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation-name: growBloom;
+          animation-name: growBloom;
+  -webkit-animation-duration: 50s;
+          animation-duration: 50s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-.bloom .center {
+.center {
   fill: #3f3025;
 }
 
 @-webkit-keyframes growBloom {
-  from {
+  70% {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  from {
+  80% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 
 @keyframes growBloom {
-  from {
+  70% {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  from {
+  80% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
