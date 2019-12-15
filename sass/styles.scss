@@ -57,10 +57,12 @@ body {
   animation-duration: $total-timeline;
   animation-iteration-count: infinite;
 }
+
 .dirt {
   background-color: $dirt;
   // fill: $dirt;
 }
+
 @keyframes shortenGround {
   30% {
     height: 268px;
@@ -170,7 +172,7 @@ body {
   }
 }
 
-.root {
+.roots {
   margin-top: 0.5rem;
 
   animation-name: growRoot;
@@ -182,7 +184,7 @@ body {
 
   fill: none;
   // stroke-linecap: round;
-  opacity: 0;
+  // opacity: 0;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
 

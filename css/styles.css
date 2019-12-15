@@ -232,7 +232,7 @@ body {
   }
 }
 
-.root {
+.roots {
   margin-top: 0.5rem;
   -webkit-animation-name: growRoot;
           animation-name: growRoot;
@@ -243,7 +243,6 @@ body {
   -webkit-transform-origin: top center;
           transform-origin: top center;
   fill: none;
-  opacity: 0;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
 }
