@@ -1,0 +1,23 @@
+{
+  "name": "hybrid-animation-code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MannyIkomi/hybrid-animation-code.git"
+  },
+  "author": "Manny Ikomi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MannyIkomi/hybrid-animation-code/issues"
+  },
+  "homepage": "https://github.com/MannyIkomi/hybrid-animation-code#readme",
+  "dependencies": {
+    "gsap": "^3.0.4",
+    "scrollmagic": "^2.0.7"
+  },
+  "description": ""
+}

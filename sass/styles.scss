@@ -10,6 +10,10 @@ $sky: #86bfee;
 
 $total-timeline: 50s; //will use scrolling length
 
+.scroll-space {
+  height: 100vh * 7;
+}
+
 body {
   // background-color: red;
   margin: 0;
@@ -17,22 +21,23 @@ body {
   box-sizing: border-box;
 }
 
-.pot-metal {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  border: 2rem solid;
-  border-top: 0;
+svg {
+  // min-width: 100%;
+  // min-height: 100%;
 
-  height: 100px;
-  max-width: 24rem;
-  margin: auto;
-
-  color: silver;
-  transform: translateY(-0.5rem);
+  position: absolute;
+  bottom: 0;
+  // #hybrid {
+  // }
 }
 
-.seed-viewport {
+.dirt {
+  background-color: $dirt;
+
+  // fill: $dirt;
+}
+
+#viewbox {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -41,34 +46,50 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-}
 
-.sky {
-  height: 100%;
-  width: 100%;
-  background-color: $sky;
-}
+  .sky {
+    background-color: $sky;
+    height: 100%;
+    width: 100%;
+  }
 
-.pot-dirt {
-  position: relative;
-  height: 268px;
-  width: 100%;
-  animation-name: shortenGround;
-  animation-duration: $total-timeline;
-  animation-iteration-count: infinite;
-}
+  .pot {
+    .dirt {
+      position: relative;
+      height: 100vh;
+      width: 100%;
 
-.dirt {
-  background-color: $dirt;
-  // fill: $dirt;
+      // animation-name: shortenGround;
+      animation-duration: $total-timeline;
+      animation-iteration-count: infinite;
+    }
+
+    .metal {
+      position: relative;
+      // display: flex;
+      // justify-content: center;
+      border: 2rem solid;
+      border-top: 0;
+
+      height: 100px;
+      max-width: 24rem;
+      margin: auto;
+
+      // overflow-y: hidden;
+      // overflow-x: visible;
+
+      color: rgb(190, 190, 190);
+      transform: translateY(-0.5rem);
+    }
+  }
 }
 
 @keyframes shortenGround {
   30% {
-    height: 268px;
+    height: 66vh;
   }
   to {
-    height: 100px;
+    height: 10vh;
   }
 }
 
@@ -82,15 +103,15 @@ body {
   margin: auto;
   overflow: hidden;
 
-  svg {
-    width: 320px;
-    height: 568px;
-    transform: translateY(375px);
-    animation-name: growStem;
-    animation-duration: $total-timeline;
-    animation-iteration-count: infinite;
-    // height: 100px;
-  }
+  // svg {
+  // width: 320px;
+  // height: 568px;
+  // transform: translateY(375px);
+  // animation-name: growStem;
+  // animation-duration: $total-timeline;
+  // animation-iteration-count: infinite;
+  // height: 100px;
+  // }
 }
 
 @keyframes growStem {
@@ -233,9 +254,9 @@ body {
   width: 100%;
   height: auto;
 
-  transform: scale(0);
+  // transform: scale(0);
 
-  animation-name: growBloom;
+  // animation-name: growBloom;
   animation-duration: $total-timeline;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -262,12 +283,13 @@ body {
   stroke-width: 5.333;
 }
 
-.petal {
+.flower {
+  transform: scale(0);
   transform-box: fill-box;
   transform-origin: center;
 
-  animation-name: panelTwist;
-  animation-duration: $total-timeline / 8;
+  // animation-name: panelTwist;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
@@ -277,7 +299,13 @@ body {
     stroke: #ff8c36;
     stroke-miterlimit: 1;
     stroke-width: 1.333;
-    // fill: blue;
+  }
+
+  .cell {
+    path {
+      fill: blue;
+      stroke: red;
+    }
   }
 }
 .tesla {

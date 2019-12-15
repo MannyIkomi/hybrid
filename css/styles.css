@@ -1,3 +1,7 @@
+.scroll-space {
+  height: 700vh;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -5,25 +9,16 @@ body {
           box-sizing: border-box;
 }
 
-.pot-metal {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border: 2rem solid;
-  border-top: 0;
-  height: 100px;
-  max-width: 24rem;
-  margin: auto;
-  color: silver;
-  -webkit-transform: translateY(-0.5rem);
-          transform: translateY(-0.5rem);
+svg {
+  position: absolute;
+  bottom: 0;
 }
 
-.seed-viewport {
+.dirt {
+  background-color: #3f3025;
+}
+
+#viewbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,43 +35,49 @@ body {
   overflow: hidden;
 }
 
-.sky {
+#viewbox .sky {
+  background-color: #86bfee;
   height: 100%;
   width: 100%;
-  background-color: #86bfee;
 }
 
-.pot-dirt {
+#viewbox .pot .dirt {
   position: relative;
-  height: 268px;
+  height: 100vh;
   width: 100%;
-  -webkit-animation-name: shortenGround;
-          animation-name: shortenGround;
   -webkit-animation-duration: 50s;
           animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
 
-.dirt {
-  background-color: #3f3025;
+#viewbox .pot .metal {
+  position: relative;
+  border: 2rem solid;
+  border-top: 0;
+  height: 100px;
+  max-width: 24rem;
+  margin: auto;
+  color: #bebebe;
+  -webkit-transform: translateY(-0.5rem);
+          transform: translateY(-0.5rem);
 }
 
 @-webkit-keyframes shortenGround {
   30% {
-    height: 268px;
+    height: 66vh;
   }
   to {
-    height: 100px;
+    height: 10vh;
   }
 }
 
 @keyframes shortenGround {
   30% {
-    height: 268px;
+    height: 66vh;
   }
   to {
-    height: 100px;
+    height: 10vh;
   }
 }
 
@@ -85,19 +86,6 @@ body {
   bottom: 0;
   margin: auto;
   overflow: hidden;
-}
-
-.seed-keyframe svg {
-  width: 320px;
-  height: 568px;
-  -webkit-transform: translateY(375px);
-          transform: translateY(375px);
-  -webkit-animation-name: growStem;
-          animation-name: growStem;
-  -webkit-animation-duration: 50s;
-          animation-duration: 50s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes growStem {
@@ -302,10 +290,6 @@ body {
   bottom: 225px;
   width: 100%;
   height: auto;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-animation-name: growBloom;
-          animation-name: growBloom;
   -webkit-animation-duration: 50s;
           animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
@@ -353,14 +337,14 @@ body {
   stroke-width: 5.333;
 }
 
-.petal {
+.flower {
+  -webkit-transform: scale(0);
+          transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
-  -webkit-animation-name: panelTwist;
-          animation-name: panelTwist;
-  -webkit-animation-duration: 6.25s;
-          animation-duration: 6.25s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-fill-mode: forwards;
@@ -369,11 +353,16 @@ body {
           animation-direction: alternate;
 }
 
-.petal .panel {
+.flower .panel {
   fill: #ffd44a;
   stroke: #ff8c36;
   stroke-miterlimit: 1;
   stroke-width: 1.333;
+}
+
+.flower .cell path {
+  fill: blue;
+  stroke: red;
 }
 
 .tesla {
