@@ -1,12 +1,31 @@
-.scroll-space {
-  height: 700vh;
-}
-
 body {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer a,
+footer span {
+  font-size: 1.5rem;
 }
 
 svg {
@@ -61,39 +80,18 @@ svg {
   overflow: hidden;
 }
 
-.seed-stem {
-  stroke: #c01714;
-  stroke-width: 2;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  -webkit-animation: growRoot 50s infinite;
-          animation: growRoot 50s infinite;
-  animation-direction: reverse;
-}
-
-.seed {
-  fill: #004124;
-}
-
 #seed_2_ {
-  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   fill: #004124;
 }
 
 .port {
-  transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
 }
 
-.roots {
-  margin-top: 0.5rem;
-  -webkit-animation-name: growRoot;
-          animation-name: growRoot;
-  -webkit-animation-duration: 50s;
-          animation-duration: 50s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+.roots path {
   fill: transparent;
 }
 
@@ -159,12 +157,12 @@ svg {
 
 @-webkit-keyframes centerTwist {
   25% {
-    -webkit-transform: rotateY(-10deg) rotateX(-10deg);
-            transform: rotateY(-10deg) rotateX(-10deg);
+    -webkit-transform: rotateY(-5deg) rotateX(-5deg);
+            transform: rotateY(-5deg) rotateX(-5deg);
   }
   75% {
-    -webkit-transform: rotateY(10deg) rotateX(-10deg);
-            transform: rotateY(10deg) rotateX(-10deg);
+    -webkit-transform: rotateY(5deg) rotateX(-5deg);
+            transform: rotateY(5deg) rotateX(-5deg);
   }
   to {
     -webkit-transform: initial;
@@ -174,12 +172,12 @@ svg {
 
 @keyframes centerTwist {
   25% {
-    -webkit-transform: rotateY(-10deg) rotateX(-10deg);
-            transform: rotateY(-10deg) rotateX(-10deg);
+    -webkit-transform: rotateY(-5deg) rotateX(-5deg);
+            transform: rotateY(-5deg) rotateX(-5deg);
   }
   75% {
-    -webkit-transform: rotateY(10deg) rotateX(-10deg);
-            transform: rotateY(10deg) rotateX(-10deg);
+    -webkit-transform: rotateY(5deg) rotateX(-5deg);
+            transform: rotateY(5deg) rotateX(-5deg);
   }
   to {
     -webkit-transform: initial;

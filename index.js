@@ -10,7 +10,7 @@ const pathLength = pathElement => pathElement.getTotalLength()
 // const multipleOf100 = (frame = 0) => frame * 100
 // const viewportPercentageString = (number = 0) => `${number}%`
 
-const TOTALFRAMES = '600%' // viewport scroll relative duration
+const TOTALFRAMES = '700%' // viewport scroll relative duration
 const FRAMES1 = '100%'
 const FRAMES2 = '200%'
 const FRAMES3 = '300%'
@@ -41,20 +41,6 @@ const seedCover = document.querySelector('#seed_2_')
 const sky = document.querySelector('.sky')
 const metalPot = document.querySelector('.pot.metal')
 const hybrid = document.querySelector('svg')
-
-// const rootingTimeline = new TimelineMax().fromTo(
-//   [waterRoot, powerRoot, chloraRoot],
-//   1, // duration
-//   {
-//     strokeWidth: 1
-//   },
-//   {
-//     strokeDashoffset: 0,
-//     ease: Linear.easeIn,
-//     strokeWidth: 6,
-//
-//   }
-// )
 
 const viewboxPin = new ScrollMagic.Scene({
   tweenChanges: true,
@@ -90,10 +76,9 @@ const growRoots = new ScrollMagic.Scene({
       .fromTo(
         [waterPort, powerPort, chloraPort, waterRoot, powerRoot, chloraRoot],
         0.1, // duration
-        { scale: 0, transformOrigin: 'center' },
-        { scale: 1 /* transformOrigin: 'center' */ }
+        { scale: 0, opacity: 0, transformOrigin: 'center' },
+        { scale: 1, opacity: 1 /* transformOrigin: 'center' */ }
       )
-
       .fromTo(
         [waterRoot, powerRoot, chloraRoot],
         0.9, // duration
@@ -173,19 +158,19 @@ const growFlower = new ScrollMagic.Scene({
     new TimelineMax()
       .fromTo(
         document.querySelector('#seed_2_'),
-        1,
-        { rotateX: '90deg' },
-        { rotateX: '0deg' }
+        0.5,
+        {
+          transform: 'rotateX(90deg)',
+          /* opacity: 0, */ transformOrigin: 'center'
+        },
+        { transform: 'rotateX(0)' /* , opacity: 1 */ }
       )
       .fromTo(
         document.querySelector('#flower'),
         1,
         {
           scale: 0,
-          // transformBox: 'fill-box',
           transformOrigin: 'center'
-
-          // svgOrigin: 'center center'
         },
         {
           scale: 1,
@@ -196,7 +181,7 @@ const growFlower = new ScrollMagic.Scene({
         document.querySelector('#center'),
         1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1 }
+        { scale: 0.95 }
       )
       .fromTo(
         document.querySelector('#panels'),

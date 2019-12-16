@@ -8,17 +8,26 @@ $seed: #004124;
 $dirt: #3f3025;
 $sky: #86bfee;
 
-$total-timeline: 50s; //will use scrolling length
-
-.scroll-space {
-  height: 100vh * 7;
-}
-
 body {
   // background-color: red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+footer {
+  display: flex;
+  height: 50vh;
+
+  a,
+  span {
+    font-size: 1.5rem;
+  }
+
+  flex-direction: column;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  align-items: center;
+  justify-content: center;
 }
 
 svg {
@@ -55,9 +64,6 @@ svg {
   }
 
   .pot {
-    // .dirt {
-    // }
-
     .metal {
       position: relative;
       // display: flex;
@@ -81,66 +87,34 @@ svg {
 
 .seed-keyframe {
   position: absolute;
-  // height: 568px;
-  // width: 100%;
+
   bottom: 0;
-  // left: 0;
-  // right: 0;
+
   margin: auto;
   overflow: hidden;
-
-  // svg {
-  // width: 320px;
-  // height: 568px;
-  // transform: translateY(375px);
-  // animation-name: growStem;
-  // animation-duration: $total-timeline;
-  // animation-iteration-count: infinite;
-  // height: 100px;
-  // }
 }
 
-.seed-stem {
-  stroke: $power;
-  stroke-width: 2;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: growRoot $total-timeline infinite;
-  animation-direction: reverse;
-}
-
-.seed {
-  fill: $seed;
-}
-
-#seed_2_ {
-  transform-box: fill-box;
-  fill: $seed;
+#seed{
+  transform-origin: center;
+  
+  #seed_1_ {
+    // transform-box: fill-box;
+    fill: $seed;
+  #seed_2_ {
+    // transform-box: fill-box;
+    fill: $seed;
+  }
 }
 
 .port {
-  transform-box: fill-box;
+  // transform-box: fill-box;
   transform-origin: center;
 }
 
 .roots {
-  margin-top: 0.5rem;
-
-  animation-name: growRoot;
-  // after ports open
-  animation-duration: $total-timeline;
-  animation-iteration-count: infinite;
-
-  // transform-origin: top center;
-  // transform-box: fill-box;
-
-  fill: transparent;
-  // stroke-linecap: round;
-  // opacity: 0;
-  // stroke-dasharray: 600;
-  // stroke-dashoffset: 600;
-
-  // transform: scale(1);
+  path {
+    fill: transparent;
+  }
 }
 
 #flower {
@@ -162,19 +136,14 @@ svg {
   }
   fill: $solar;
   stroke: #ff8c36;
-  // stroke-miterlimit: 1;
-  // stroke-width: 1.333;
 }
 
 #arms {
-  // transform: scale(0);
-  // transform-box: fill-box;
   transform-origin: center;
   .arm {
     stroke: $orange;
   }
 }
-
 .cell {
   path {
     fill: $solar;
@@ -212,10 +181,10 @@ svg {
 
 @keyframes centerTwist {
   25% {
-    transform: rotateY(-10deg) rotateX(-10deg);
+    transform: rotateY(-5deg) rotateX(-5deg);
   }
   75% {
-    transform: rotateY(10deg) rotateX(-10deg);
+    transform: rotateY(5deg) rotateX(-5deg);
   }
   to {
     transform: initial;
