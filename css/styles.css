@@ -101,21 +101,15 @@ svg {
 }
 
 #flower {
-  -webkit-transform: scale(0);
-          transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
 }
 
 .panels {
-  -webkit-transform: scale(0);
-          transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center center;
           transform-origin: center center;
-  -webkit-animation-name: panelTwist;
-          animation-name: panelTwist;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -129,8 +123,6 @@ svg {
 }
 
 #arms {
-  -webkit-transform: scale(0);
-          transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
@@ -146,10 +138,6 @@ svg {
 }
 
 #center {
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-animation-name: centerTwist;
-          animation-name: centerTwist;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;

@@ -52,7 +52,7 @@ const hybrid = document.querySelector('svg')
 //     strokeDashoffset: 0,
 //     ease: Linear.easeIn,
 //     strokeWidth: 6,
-//     immediateRender: false
+//
 //   }
 // )
 
@@ -77,6 +77,8 @@ const viewboxPin = new ScrollMagic.Scene({
 //     { scale: 1 }
 //   )
 // )
+
+const growHybrid = new ScrollMagic.Scene({ tweenChanges: true })
 
 const growRoots = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
@@ -154,12 +156,7 @@ const removePot = new ScrollMagic.Scene({
   duration: FRAMES2
 })
   .setTween(
-    TweenLite.fromTo(
-      metalPot,
-      1,
-      { borderWidth: '2rem' },
-      { borderWidth: 0, immediateRender: false }
-    )
+    TweenLite.fromTo(metalPot, 1, { borderWidth: '2rem' }, { borderWidth: 0 })
   )
   .addIndicators({ name: 'remove pot' })
   .addTo(ctrl)
@@ -176,44 +173,44 @@ const growFlower = new ScrollMagic.Scene({
     new TimelineMax()
       .fromTo(
         document.querySelector('#seed_2_'),
+        1,
         { rotateX: '90deg' },
         { rotateX: '0deg' }
       )
       .fromTo(
         document.querySelector('#flower'),
         1,
-        { scale: 0 },
+        { scale: 0, transformBox: 'fill-box', transformOrigin: 'center' },
         {
           scale: 1,
-          visibility: 'hidden',
-          // transformBox: 'fill-box',
-          transformOrigin: 'center',
-          immediateRender: false
+
+          transformOrigin: 'center'
         }
       )
       .fromTo(
         document.querySelector('#center'),
         1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1, transformOrigin: 'center', immediateRender: false }
+        { scale: 1, transformOrigin: 'center' }
       )
       .fromTo(
         document.querySelector('#panels'),
         1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1, transformOrigin: 'center', immediateRender: false }
+        { scale: 1, transformOrigin: 'center' }
       )
       .fromTo(
         document.querySelector('#arms'),
         1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1, transformOrigin: 'center', immediateRender: false }
+        { scale: 1, transformOrigin: 'center' },
+        '-=1.25'
       )
       .fromTo(
-        document.querySelector('#tesla_'),
+        document.querySelector('#Tesla_1_'),
         1,
         { opacity: 0 },
-        { opacity: 1, immediateRender: false }
+        { opacity: 1 }
       )
   )
   .addIndicators({ name: 'grow flower' })
