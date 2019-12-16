@@ -94,14 +94,16 @@ svg {
   overflow: hidden;
 }
 
-#seed{
-  transform-origin: center;
-  
+#seed {
+  // transform-origin: center;
+  // transform-box: fill-box;
+
   #seed_1_ {
     // transform-box: fill-box;
     fill: $seed;
+  }
   #seed_2_ {
-    // transform-box: fill-box;
+    transform-origin: center;
     fill: $seed;
   }
 }
@@ -119,9 +121,26 @@ svg {
 
 #flower {
   // transform: scale(0);
-  transform-box: fill-box;
-  transform-origin: center;
+  // transform-box: fill-box
+
+  .animation {
+    transform-box: fill-box;
+    transform-origin: center;
+    // transform: rotateZ(10deg);
+  }
 }
+
+// @keyframes rotateFlower {
+//   25% {
+//     transform: rotateZ(-10deg);
+//   }
+//   75% {
+//     transform: rotateZ(10deg);
+//   }
+//   to {
+//     transform: initial;
+//   }
+// }
 
 #panels {
   // transform: scale(0);
@@ -166,18 +185,9 @@ svg {
   fill: $dirt;
 }
 
-#tesla_1_ {
-  // fill: $solar;
-  // path {
-  //   animation-name: centerTwist;
-  //   animation-duration: 2s;
-  //   animation-iteration-count: infinite;
-  //   animation-direction: alternate;
-  //   animation-fill-mode: both;
-  // }
-
-  // filter: drop-shadow(10px 5px 5px red);
-}
+// #tesla_1_ {
+// filter: drop-shadow(10px 5px 5px red);
+// }
 
 @keyframes centerTwist {
   25% {

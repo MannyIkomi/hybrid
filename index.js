@@ -98,7 +98,7 @@ const growRoots = new ScrollMagic.Scene({
 
 const growHeight = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
-  offset: '150',
+  offset: '200',
   tweenChanges: true,
   duration: FRAMES3
 })
@@ -141,7 +141,7 @@ const removePot = new ScrollMagic.Scene({
   duration: FRAMES2
 })
   .setTween(
-    TweenLite.fromTo(metalPot, 1, { borderWidth: '2rem' }, { borderWidth: 0 })
+    TweenLite.fromTo(metalPot, 0.8, { borderWidth: '2rem' }, { borderWidth: 0 })
   )
   .addIndicators({ name: 'remove pot' })
   .addTo(ctrl)
@@ -158,12 +158,13 @@ const growFlower = new ScrollMagic.Scene({
     new TimelineMax()
       .fromTo(
         document.querySelector('#seed_2_'),
-        0.5,
+        2,
         {
-          transform: 'rotateX(90deg)',
-          /* opacity: 0, */ transformOrigin: 'center'
+          // transform: 'rotateX(-90deg)',
+          opacity: 0.75,
+          transformOrigin: 'center'
         },
-        { transform: 'rotateX(0)' /* , opacity: 1 */ }
+        { opacity: 1 }
       )
       .fromTo(
         document.querySelector('#flower'),
@@ -200,7 +201,7 @@ const growFlower = new ScrollMagic.Scene({
       .fromTo(
         document.querySelector('#Tesla_1_'),
         1,
-        { opacity: 0 },
+        { opacity: 0.1 },
         { opacity: 1 }
       )
   )

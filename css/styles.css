@@ -80,7 +80,11 @@ svg {
   overflow: hidden;
 }
 
-#seed_2_ {
+#seed #seed_1_ {
+  fill: #004124;
+}
+
+#seed #seed_2_ {
   -webkit-transform-origin: center;
           transform-origin: center;
   fill: #004124;
@@ -95,7 +99,7 @@ svg {
   fill: transparent;
 }
 
-#flower {
+#flower .animation {
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
