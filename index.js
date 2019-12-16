@@ -90,7 +90,7 @@ const growRoots = new ScrollMagic.Scene({
       .fromTo(
         [waterPort, powerPort, chloraPort, waterRoot, powerRoot, chloraRoot],
         0.1, // duration
-        { scale: 0 /* transformOrigin: 'center' */ },
+        { scale: 0, transformOrigin: 'center' },
         { scale: 1 /* transformOrigin: 'center' */ }
       )
 
@@ -196,20 +196,21 @@ const growFlower = new ScrollMagic.Scene({
         document.querySelector('#center'),
         1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1 /* transformOrigin: 'center' */ }
+        { scale: 1 }
       )
       .fromTo(
         document.querySelector('#panels'),
         1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1 }
+        { scale: 1 },
+        '-=0.8'
       )
       .fromTo(
         document.querySelector('#arms'),
         1,
         { scale: 0, transformOrigin: 'center' },
         { scale: 1 },
-        '-=1.25'
+        '-=0.9'
       )
       .fromTo(
         document.querySelector('#Tesla_1_'),

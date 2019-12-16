@@ -132,13 +132,13 @@ svg {
   animation-iteration-count: infinite;
 
   // transform-origin: top center;
-  transform-box: fill-box;
+  // transform-box: fill-box;
 
   fill: transparent;
   // stroke-linecap: round;
   // opacity: 0;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
+  // stroke-dasharray: 600;
+  // stroke-dashoffset: 600;
 
   // transform: scale(1);
 }
@@ -149,17 +149,17 @@ svg {
   transform-origin: center;
 }
 
-.panels {
+#panels {
   // transform: scale(0);
-  transform-box: fill-box;
-  transform-origin: center center;
-
-  animation-name: panelTwist;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
-
+  transform-origin: center;
+  .panel {
+    transform-box: fill-box;
+    animation-name: panelTwist;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+  }
   fill: $solar;
   stroke: #ff8c36;
   // stroke-miterlimit: 1;
@@ -184,12 +184,13 @@ svg {
 
 #center {
   // transform: scale(0);
-
-  // animation-name: centerTwist;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
+  .animation {
+    animation-name: centerTwist;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+  }
 
   // transform-box: fill-box;
   transform-origin: center;
@@ -206,15 +207,15 @@ svg {
   //   animation-fill-mode: both;
   // }
 
-  filter: drop-shadow(10px 5px 5px red);
+  // filter: drop-shadow(10px 5px 5px red);
 }
 
 @keyframes centerTwist {
   25% {
-    transform: rotateY(-5deg) rotateX(-5deg);
+    transform: rotateY(-10deg) rotateX(-10deg);
   }
   75% {
-    transform: rotateY(5deg) rotateX(-5deg);
+    transform: rotateY(10deg) rotateX(-10deg);
   }
   to {
     transform: initial;

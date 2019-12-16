@@ -94,10 +94,7 @@ svg {
           animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-  transform-box: fill-box;
   fill: transparent;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
 }
 
 #flower {
@@ -106,10 +103,15 @@ svg {
           transform-origin: center;
 }
 
-.panels {
+#panels {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  fill: #ffd44a;
+  stroke: #ff8c36;
+}
+
+#panels .panel {
   transform-box: fill-box;
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
   -webkit-animation-name: panelTwist;
           animation-name: panelTwist;
   -webkit-animation-duration: 2s;
@@ -120,8 +122,6 @@ svg {
           animation-fill-mode: forwards;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  fill: #ffd44a;
-  stroke: #ff8c36;
 }
 
 #arms {
@@ -139,6 +139,14 @@ svg {
 }
 
 #center {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  fill: #3f3025;
+}
+
+#center .animation {
+  -webkit-animation-name: centerTwist;
+          animation-name: centerTwist;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -147,24 +155,16 @@ svg {
           animation-fill-mode: forwards;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  fill: #3f3025;
-}
-
-#tesla_1_ {
-  -webkit-filter: drop-shadow(10px 5px 5px red);
-          filter: drop-shadow(10px 5px 5px red);
 }
 
 @-webkit-keyframes centerTwist {
   25% {
-    -webkit-transform: rotateY(-5deg) rotateX(-5deg);
-            transform: rotateY(-5deg) rotateX(-5deg);
+    -webkit-transform: rotateY(-10deg) rotateX(-10deg);
+            transform: rotateY(-10deg) rotateX(-10deg);
   }
   75% {
-    -webkit-transform: rotateY(5deg) rotateX(-5deg);
-            transform: rotateY(5deg) rotateX(-5deg);
+    -webkit-transform: rotateY(10deg) rotateX(-10deg);
+            transform: rotateY(10deg) rotateX(-10deg);
   }
   to {
     -webkit-transform: initial;
@@ -174,12 +174,12 @@ svg {
 
 @keyframes centerTwist {
   25% {
-    -webkit-transform: rotateY(-5deg) rotateX(-5deg);
-            transform: rotateY(-5deg) rotateX(-5deg);
+    -webkit-transform: rotateY(-10deg) rotateX(-10deg);
+            transform: rotateY(-10deg) rotateX(-10deg);
   }
   75% {
-    -webkit-transform: rotateY(5deg) rotateX(-5deg);
-            transform: rotateY(5deg) rotateX(-5deg);
+    -webkit-transform: rotateY(10deg) rotateX(-10deg);
+            transform: rotateY(10deg) rotateX(-10deg);
   }
   to {
     -webkit-transform: initial;
