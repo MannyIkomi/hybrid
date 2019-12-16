@@ -115,17 +115,7 @@ svg {
 
 #seed_2_ {
   transform-box: fill-box;
-  // transform: rotateX(-90deg);
-
-  // animation-name: rotateSeed;
-  // animation-duration: $total-timeline;
-  // animation-iteration-count: infinite;
-
   fill: $seed;
-
-  // transform: rotateX(-90deg);
-
-  // transform-origin: top center;
 }
 
 .port {
@@ -159,7 +149,8 @@ svg {
   transform-origin: center;
 }
 
-.panel {
+.panels {
+  transform: scale(0);
   transform-box: fill-box;
   transform-origin: center center;
 
@@ -176,12 +167,12 @@ svg {
 }
 
 #arms {
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: center;
   .arm {
     stroke: $orange;
   }
-  transform-box: fill-box;
-  transform-origin: center;
-  // stroke-width: 5.333;
 }
 
 .cell {
@@ -192,6 +183,8 @@ svg {
 }
 
 #center {
+  transform: scale(0);
+
   animation-name: centerTwist;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -199,6 +192,7 @@ svg {
   animation-direction: alternate;
 
   transform-box: fill-box;
+  transform-origin: center;
   fill: $dirt;
 }
 

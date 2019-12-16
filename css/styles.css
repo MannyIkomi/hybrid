@@ -108,7 +108,9 @@ svg {
           transform-origin: center;
 }
 
-.panel {
+.panels {
+  -webkit-transform: scale(0);
+          transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center center;
           transform-origin: center center;
@@ -127,6 +129,8 @@ svg {
 }
 
 #arms {
+  -webkit-transform: scale(0);
+          transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
@@ -142,6 +146,8 @@ svg {
 }
 
 #center {
+  -webkit-transform: scale(0);
+          transform: scale(0);
   -webkit-animation-name: centerTwist;
           animation-name: centerTwist;
   -webkit-animation-duration: 2s;
@@ -153,6 +159,8 @@ svg {
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
   transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
   fill: #3f3025;
 }
 

@@ -1,5 +1,5 @@
 const ctrl = new ScrollMagic.Controller()
-TweenLite.defaultOverwrite = 'none'
+TweenLite.defaultOverwrite = false
 
 const select = queryString => {
   const query = document.querySelectorAll(queryString)
@@ -115,14 +115,7 @@ const growHeight = new ScrollMagic.Scene({
   tweenChanges: true,
   duration: FRAMES3
 })
-  .setTween(
-    TweenLite.fromTo(
-      hybrid,
-      1,
-      { yPercent: 55 },
-      { yPercent: 1, immediateRender: false }
-    )
-  )
+  .setTween(TweenLite.fromTo(hybrid, 1, { yPercent: 55 }, { yPercent: 1 }))
   .addIndicators({ name: 'grow height' })
   .addTo(ctrl)
 
@@ -181,33 +174,43 @@ const growFlower = new ScrollMagic.Scene({
 })
   .setTween(
     new TimelineMax()
-      .fromTo(select('#seed_2_'), { rotateX: '90deg' }, { rotateX: '0deg' })
       .fromTo(
-        select('#flower'),
+        document.querySelector('#seed_2_'),
+        { rotateX: '90deg' },
+        { rotateX: '0deg' }
+      )
+      .fromTo(
+        document.querySelector('#flower'),
+        1,
         { scale: 0 },
         {
-          scale: 1
-          // transformBox: 'fill-box'
-          // transformOrigin: 'center center'
+          scale: 1,
+          visibility: 'hidden',
+          // transformBox: 'fill-box',
+          transformOrigin: 'center',
+          immediateRender: false
         }
       )
       .fromTo(
-        select('#center'),
+        document.querySelector('#center'),
+        1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1, transformOrigin: 'center' }
+        { scale: 1, transformOrigin: 'center', immediateRender: false }
       )
       .fromTo(
-        document.querySelectorAll('#panels'),
+        document.querySelector('#panels'),
+        1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1, transformOrigin: 'center' }
+        { scale: 1, transformOrigin: 'center', immediateRender: false }
       )
       .fromTo(
-        document.querySelectorAll('#arms'),
+        document.querySelector('#arms'),
+        1,
         { scale: 0, transformOrigin: 'center' },
-        { scale: 1, transformOrigin: 'center' }
+        { scale: 1, transformOrigin: 'center', immediateRender: false }
       )
       .fromTo(
-        '#Tesla_1_',
+        document.querySelector('#tesla_'),
         1,
         { opacity: 0 },
         { opacity: 1, immediateRender: false }
