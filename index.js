@@ -1,4 +1,5 @@
 const ctrl = new ScrollMagic.Controller()
+TweenLite.defaultOverwrite = 'none'
 
 const pathLength = pathElement => pathElement.getTotalLength()
 // const multipleOf100 = (frame = 0) => frame * 100
@@ -40,12 +41,14 @@ const rootingTimeline = new TimelineMax().fromTo(
   {
     strokeDashoffset: 0,
     ease: Linear.easeIn,
-    strokeWidth: 6
+    strokeWidth: 6,
+    immediateRender: false
   }
 )
 
 const viewboxPin = new ScrollMagic.Scene({
-  triggerHook: 0,
+  tweenChanges: true,
+  triggerHook: 'onLeave',
   duration: TOTALFRAMES // 6 times the viewport scrolling height
 })
   .setPin('#viewbox.pin')
@@ -53,7 +56,7 @@ const viewboxPin = new ScrollMagic.Scene({
   .addTo(ctrl)
 
 const growRoots = new ScrollMagic.Scene({
-  triggerHook: 0,
+  triggerHook: 'onLeave',
   tweenChanges: true,
   duration: FRAME2
 })
@@ -62,16 +65,17 @@ const growRoots = new ScrollMagic.Scene({
   .addTo(ctrl)
 
 const growHeight = new ScrollMagic.Scene({
-  triggerHook: 0,
+  triggerHook: 'onLeave',
+  offset: '150',
   tweenChanges: true,
   duration: FRAME3
 })
-  .setTween(TweenLite.fromTo(hybrid, 2, { yPercent: 55 }, { yPercent: 0 }))
+  .setTween(TweenLite.fromTo(hybrid, 2, { yPercent: 55 }, { yPercent: 1 }))
   .addIndicators({ name: 'grow height' })
   .addTo(ctrl)
 
 const receedSeedStem = new ScrollMagic.Scene({
-  triggerHook: 0,
+  triggerHook: 'onLeave',
   tweenChanges: true,
   duration: '50%'
 })
@@ -91,7 +95,7 @@ const receedSeedStem = new ScrollMagic.Scene({
 
 // transform: translateY(55%);
 const increaseSky = new ScrollMagic.Scene({
-  triggerHook: 0,
+  triggerHook: 'onLeave',
   duration: FRAME3, // end phase1 dirt completely gone
   tweenChanges: true
 })
@@ -100,7 +104,7 @@ const increaseSky = new ScrollMagic.Scene({
   .addTo(ctrl)
 
 const removePot = new ScrollMagic.Scene({
-  triggerHook: 0,
+  triggerHook: 'onLeave',
   tweenChanges: true,
   duration: FRAME2
 })
