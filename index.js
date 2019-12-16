@@ -1,16 +1,21 @@
 const ctrl = new ScrollMagic.Controller()
 TweenLite.defaultOverwrite = 'none'
 
+const select = queryString => {
+  const query = document.querySelectorAll(queryString)
+  return query.length > 1 ? query : query[0]
+}
+
 const pathLength = pathElement => pathElement.getTotalLength()
 // const multipleOf100 = (frame = 0) => frame * 100
 // const viewportPercentageString = (number = 0) => `${number}%`
 
 const TOTALFRAMES = '600%' // viewport scroll relative duration
-const FRAME1 = '100%'
-const FRAME2 = '200%'
-const FRAME3 = '300%'
-const FRAME4 = '400%'
-const FRAME5 = '500%'
+const FRAMES1 = '100%'
+const FRAMES2 = '200%'
+const FRAMES3 = '300%'
+const FRAMES4 = '400%'
+const FRAMES5 = '500%'
 
 function hideWithDashOffset(pathSelector) {
   const path = document.querySelector(pathSelector)
@@ -22,29 +27,34 @@ function hideWithDashOffset(pathSelector) {
   return path
 }
 
+// ROOTS
 const waterRoot = hideWithDashOffset('#water_1_')
 const powerRoot = hideWithDashOffset('#power_1_')
 const chloraRoot = hideWithDashOffset('#chlora_1_')
+// PORT
+const waterPort = document.querySelector('#water_port_1_')
+const chloraPort = document.querySelector('#chlora_port_1_')
+const powerPort = document.querySelector('#power_port_1_')
+// OTHER
 const seedStem = document.querySelector('#power_stem_1_')
+const seedCover = document.querySelector('#seed_2_')
 const sky = document.querySelector('.sky')
 const metalPot = document.querySelector('.pot.metal')
 const hybrid = document.querySelector('svg')
 
-console.log(hybrid)
-
-const rootingTimeline = new TimelineMax().fromTo(
-  [waterRoot, powerRoot, chloraRoot],
-  1, // duration
-  {
-    strokeWidth: 1
-  },
-  {
-    strokeDashoffset: 0,
-    ease: Linear.easeIn,
-    strokeWidth: 6,
-    immediateRender: false
-  }
-)
+// const rootingTimeline = new TimelineMax().fromTo(
+//   [waterRoot, powerRoot, chloraRoot],
+//   1, // duration
+//   {
+//     strokeWidth: 1
+//   },
+//   {
+//     strokeDashoffset: 0,
+//     ease: Linear.easeIn,
+//     strokeWidth: 6,
+//     immediateRender: false
+//   }
+// )
 
 const viewboxPin = new ScrollMagic.Scene({
   tweenChanges: true,
@@ -55,48 +65,90 @@ const viewboxPin = new ScrollMagic.Scene({
   .addIndicators({ name: 'pin viewbox' })
   .addTo(ctrl)
 
+// const growPorts = new ScrollMagic.Scene({
+//   triggerHook: 'onLeave',
+//   tweenChanges: true,
+//   duration: '10%'
+// }).setTween(
+//   new TimelineMax().fromTo(
+//     [chloraPort, waterPort, powerPort],
+//     1,
+//     { scale: 0 },
+//     { scale: 1 }
+//   )
+// )
+
 const growRoots = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
   tweenChanges: true,
-  duration: FRAME2
+  duration: FRAMES2
 })
-  .setTween(rootingTimeline)
-  .addIndicators({ name: 'grow root' })
+  .setTween(
+    new TimelineMax()
+      .fromTo(
+        [waterPort, powerPort, chloraPort, waterRoot, powerRoot, chloraRoot],
+        0.1, // duration
+        { scale: 0, transformOrigin: 'center' },
+        { scale: 1, transformOrigin: 'center' }
+      )
+
+      .fromTo(
+        [waterRoot, powerRoot, chloraRoot],
+        0.9, // duration
+        {
+          strokeWidth: 1
+        },
+        {
+          strokeDashoffset: 0,
+          ease: Linear.easeIn,
+          strokeWidth: 6,
+          immediateRender: false
+        }
+      )
+  )
+  .addIndicators({ name: 'grow roots' })
   .addTo(ctrl)
 
 const growHeight = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
   offset: '150',
   tweenChanges: true,
-  duration: FRAME3
+  duration: FRAMES3
 })
-  .setTween(TweenLite.fromTo(hybrid, 2, { yPercent: 55 }, { yPercent: 1 }))
+  .setTween(
+    TweenLite.fromTo(
+      hybrid,
+      1,
+      { yPercent: 55 },
+      { yPercent: 1, immediateRender: false }
+    )
+  )
   .addIndicators({ name: 'grow height' })
   .addTo(ctrl)
 
 const receedSeedStem = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
   tweenChanges: true,
-  duration: '50%'
+  duration: '25%'
 })
   .setTween(
     TweenLite.fromTo(
       seedStem,
       1,
-      {},
+      { strokeDasharray: 'none', strokeDashoffset: 'none' },
       {
         strokeDasharray: pathLength(seedStem),
-        strokeDashoffset: pathLength(seedStem)
+        strokeDashoffset: pathLength(seedStem),
+        immediateRender: false
       }
     )
   )
   .addIndicators({ name: 'receed stem' })
   .addTo(ctrl)
 
-// transform: translateY(55%);
 const increaseSky = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
-  duration: FRAME3, // end phase1 dirt completely gone
+  duration: FRAMES3, // end phase1 dirt completely gone
   tweenChanges: true
 })
   .setTween(TweenLite.fromTo(sky, 1, { height: '33vh' }, { height: '100vh' }))
@@ -106,10 +158,76 @@ const increaseSky = new ScrollMagic.Scene({
 const removePot = new ScrollMagic.Scene({
   triggerHook: 'onLeave',
   tweenChanges: true,
-  duration: FRAME2
+  duration: FRAMES2
 })
   .setTween(
-    TweenLite.fromTo(metalPot, 1, { borderWidth: '2rem' }, { borderWidth: 0 })
+    TweenLite.fromTo(
+      metalPot,
+      1,
+      { borderWidth: '2rem' },
+      { borderWidth: 0, immediateRender: false }
+    )
   )
   .addIndicators({ name: 'remove pot' })
   .addTo(ctrl)
+
+// END PHASE 1
+
+const growFlower = new ScrollMagic.Scene({
+  triggerHook: 'onLeave',
+  duration: FRAMES3,
+  offset: FRAMES3,
+  tweenChanges: true
+})
+  .setTween(
+    new TimelineMax()
+      .fromTo(select('#seed_2_'), { rotateX: '90deg' }, { rotateX: '0deg' })
+      .fromTo(
+        select('#flower'),
+        { scale: 0 },
+        {
+          scale: 1
+          // transformBox: 'fill-box'
+          // transformOrigin: 'center center'
+        }
+      )
+      .fromTo(
+        select('#center'),
+        { scale: 0, transformOrigin: 'center' },
+        { scale: 1, transformOrigin: 'center' }
+      )
+      .fromTo(
+        document.querySelectorAll('#panels'),
+        { scale: 0, transformOrigin: 'center' },
+        { scale: 1, transformOrigin: 'center' }
+      )
+      .fromTo(
+        document.querySelectorAll('#arms'),
+        { scale: 0, transformOrigin: 'center' },
+        { scale: 1, transformOrigin: 'center' }
+      )
+      .fromTo(
+        '#Tesla_1_',
+        1,
+        { opacity: 0 },
+        { opacity: 1, immediateRender: false }
+      )
+  )
+  .addIndicators({ name: 'grow flower' })
+  .addTo(ctrl)
+
+console.log(ctrl)
+
+// const hidePorts = new ScrollMagic.Scene({
+//   triggerHook: 'onLeave',
+//   duration: 100,
+//   offset: FRAME3,
+//   tweenChanges: true
+// }).setTween(
+//   TweenMax.fromTo(
+//     seedCover,
+//     1,
+//     { rotateY: '90', transformOrigin: 'center top' },
+//     { rotateY: '0', transformOrigin: 'center top' }
+//   )
+// )

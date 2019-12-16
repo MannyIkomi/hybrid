@@ -24,6 +24,7 @@ body {
 svg {
   position: absolute;
   bottom: 0;
+  left: 0;
 
   min-width: calc(
     320px - 4rem
@@ -78,15 +79,6 @@ svg {
   }
 }
 
-@keyframes shortenGround {
-  30% {
-    height: 66vh;
-  }
-  to {
-    height: 10vh;
-  }
-}
-
 .seed-keyframe {
   position: absolute;
   // height: 568px;
@@ -108,18 +100,6 @@ svg {
   // }
 }
 
-@keyframes growStem {
-  25% {
-    transform: translateY(375px);
-  }
-  90% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 .seed-stem {
   stroke: $power;
   stroke-width: 2;
@@ -133,58 +113,24 @@ svg {
   fill: $seed;
 }
 
-.seed-back {
+#seed_2_ {
   transform-box: fill-box;
-  transform: rotateX(-90deg);
+  // transform: rotateX(-90deg);
 
-  animation-name: rotateSeed;
-  animation-duration: $total-timeline;
-  animation-iteration-count: infinite;
+  // animation-name: rotateSeed;
+  // animation-duration: $total-timeline;
+  // animation-iteration-count: infinite;
 
   fill: $seed;
-}
 
-@keyframes rotateSeed {
-  75% {
-    transform: rotateX(-90deg);
-  }
-  to {
-    transform: initial;
-  }
+  // transform: rotateX(-90deg);
+
+  // transform-origin: top center;
 }
 
 .port {
-  animation-name: openPort;
-  animation-duration: $total-timeline;
-  animation-iteration-count: infinite;
-
   transform-box: fill-box;
   transform-origin: center;
-  transform: scale(0);
-
-  &.hole {
-    fill: $dirt;
-    stroke-width: 3;
-  }
-
-  &.water {
-    stroke: $water;
-  }
-  &.power {
-    stroke: $power;
-  }
-  &.chlora {
-    stroke: $chlora;
-  }
-}
-
-@keyframes openPort {
-  10% {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1);
-  }
 }
 
 .roots {
@@ -195,9 +141,10 @@ svg {
   animation-duration: $total-timeline;
   animation-iteration-count: infinite;
 
-  transform-origin: top center;
+  // transform-origin: top center;
+  transform-box: fill-box;
 
-  fill: none;
+  fill: transparent;
   // stroke-linecap: round;
   // opacity: 0;
   stroke-dasharray: 600;
@@ -206,113 +153,74 @@ svg {
   // transform: scale(1);
 }
 
-@keyframes growRoot {
-  2% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  10% {
-    stroke-dashoffset: 600;
-  }
-  to {
-    opacity: 1;
-    stroke-width: 8;
-    stroke-dashoffset: 0;
-  }
-}
-
-.root {
-  .water {
-    border-color: $water;
-    stroke: $water;
-  }
-
-  .chlora {
-    border-color: $chlora;
-    stroke: $chlora;
-  }
-
-  .power {
-    border-color: $power;
-    stroke: $power;
-  }
-}
-
-.flower {
-  position: absolute;
-  left: 0;
-  bottom: 225px;
-
-  width: 100%;
-  height: auto;
-
-  // transform: scale(0);
-
-  // animation-name: growBloom;
-  animation-duration: $total-timeline;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-}
-
-.center {
-  fill: $dirt;
-}
-
-@keyframes growBloom {
-  70% {
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.arm {
-  stroke: $orange;
-  stroke-width: 5.333;
-}
-
-.flower {
+#flower {
   transform: scale(0);
   transform-box: fill-box;
   transform-origin: center;
+}
 
-  // animation-name: panelTwist;
+.panel {
+  transform-box: fill-box;
+  transform-origin: center center;
+
+  animation-name: panelTwist;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-direction: alternate;
 
-  .panel {
-    fill: $solar;
-    stroke: #ff8c36;
-    stroke-miterlimit: 1;
-    stroke-width: 1.333;
-  }
+  fill: $solar;
+  stroke: #ff8c36;
+  // stroke-miterlimit: 1;
+  // stroke-width: 1.333;
+}
 
-  .cell {
-    path {
-      fill: blue;
-      stroke: red;
-    }
+#arms {
+  .arm {
+    stroke: $orange;
+  }
+  transform-box: fill-box;
+  transform-origin: center;
+  // stroke-width: 5.333;
+}
+
+.cell {
+  path {
+    fill: $solar;
+    stroke: $orange;
   }
 }
-.tesla {
+
+#center {
+  animation-name: centerTwist;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+
+  transform-box: fill-box;
+  fill: $dirt;
+}
+
+#tesla_1_ {
   // fill: $solar;
+  // path {
+  //   animation-name: centerTwist;
+  //   animation-duration: 2s;
+  //   animation-iteration-count: infinite;
+  //   animation-direction: alternate;
+  //   animation-fill-mode: both;
+  // }
+
   filter: drop-shadow(10px 5px 5px red);
 }
 
 @keyframes centerTwist {
   25% {
-    transform: rotateY(-10deg) rotateX(-10deg);
+    transform: rotateY(-5deg) rotateX(-5deg);
   }
   75% {
-    transform: rotateY(10deg) rotateX(-10deg);
+    transform: rotateY(5deg) rotateX(-5deg);
   }
   to {
     transform: initial;
@@ -321,10 +229,10 @@ svg {
 
 @keyframes panelTwist {
   25% {
-    transform: rotateY(-20deg) rotateX(-20deg);
+    transform: rotateY(-10deg) rotateX(-10deg);
   }
   75% {
-    transform: rotateY(20deg) rotateX(-20deg);
+    transform: rotateY(10deg) rotateX(-10deg);
   }
   to {
     transform: initial;

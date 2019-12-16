@@ -12,6 +12,7 @@ body {
 svg {
   position: absolute;
   bottom: 0;
+  left: 0;
   min-width: calc( 320px - 4rem);
 }
 
@@ -53,59 +54,11 @@ svg {
           transform: translateY(-0.5rem);
 }
 
-@-webkit-keyframes shortenGround {
-  30% {
-    height: 66vh;
-  }
-  to {
-    height: 10vh;
-  }
-}
-
-@keyframes shortenGround {
-  30% {
-    height: 66vh;
-  }
-  to {
-    height: 10vh;
-  }
-}
-
 .seed-keyframe {
   position: absolute;
   bottom: 0;
   margin: auto;
   overflow: hidden;
-}
-
-@-webkit-keyframes growStem {
-  25% {
-    -webkit-transform: translateY(375px);
-            transform: translateY(375px);
-  }
-  90% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes growStem {
-  25% {
-    -webkit-transform: translateY(375px);
-            transform: translateY(375px);
-  }
-  90% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
 }
 
 .seed-stem {
@@ -122,92 +75,15 @@ svg {
   fill: #004124;
 }
 
-.seed-back {
+#seed_2_ {
   transform-box: fill-box;
-  -webkit-transform: rotateX(-90deg);
-          transform: rotateX(-90deg);
-  -webkit-animation-name: rotateSeed;
-          animation-name: rotateSeed;
-  -webkit-animation-duration: 50s;
-          animation-duration: 50s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
   fill: #004124;
 }
 
-@-webkit-keyframes rotateSeed {
-  75% {
-    -webkit-transform: rotateX(-90deg);
-            transform: rotateX(-90deg);
-  }
-  to {
-    -webkit-transform: initial;
-            transform: initial;
-  }
-}
-
-@keyframes rotateSeed {
-  75% {
-    -webkit-transform: rotateX(-90deg);
-            transform: rotateX(-90deg);
-  }
-  to {
-    -webkit-transform: initial;
-            transform: initial;
-  }
-}
-
 .port {
-  -webkit-animation-name: openPort;
-          animation-name: openPort;
-  -webkit-animation-duration: 50s;
-          animation-duration: 50s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-}
-
-.port.hole {
-  fill: #3f3025;
-  stroke-width: 3;
-}
-
-.port.water {
-  stroke: #009cdd;
-}
-
-.port.power {
-  stroke: #c01714;
-}
-
-.port.chlora {
-  stroke: #6a8433;
-}
-
-@-webkit-keyframes openPort {
-  10% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes openPort {
-  10% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
 }
 
 .roots {
@@ -218,121 +94,26 @@ svg {
           animation-duration: 50s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  fill: none;
+  transform-box: fill-box;
+  fill: transparent;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
 }
 
-@-webkit-keyframes growRoot {
-  2% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  10% {
-    stroke-dashoffset: 600;
-  }
-  to {
-    opacity: 1;
-    stroke-width: 8;
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes growRoot {
-  2% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  10% {
-    stroke-dashoffset: 600;
-  }
-  to {
-    opacity: 1;
-    stroke-width: 8;
-    stroke-dashoffset: 0;
-  }
-}
-
-.root .water {
-  border-color: #009cdd;
-  stroke: #009cdd;
-}
-
-.root .chlora {
-  border-color: #6a8433;
-  stroke: #6a8433;
-}
-
-.root .power {
-  border-color: #c01714;
-  stroke: #c01714;
-}
-
-.flower {
-  position: absolute;
-  left: 0;
-  bottom: 225px;
-  width: 100%;
-  height: auto;
-  -webkit-animation-duration: 50s;
-          animation-duration: 50s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.center {
-  fill: #3f3025;
-}
-
-@-webkit-keyframes growBloom {
-  70% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  80% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes growBloom {
-  70% {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  80% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-.arm {
-  stroke: #ff8c36;
-  stroke-width: 5.333;
-}
-
-.flower {
+#flower {
   -webkit-transform: scale(0);
           transform: scale(0);
   transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
+}
+
+.panel {
+  transform-box: fill-box;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-animation-name: panelTwist;
+          animation-name: panelTwist;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -341,33 +122,53 @@ svg {
           animation-fill-mode: forwards;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-}
-
-.flower .panel {
   fill: #ffd44a;
   stroke: #ff8c36;
-  stroke-miterlimit: 1;
-  stroke-width: 1.333;
 }
 
-.flower .cell path {
-  fill: blue;
-  stroke: red;
+#arms {
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
-.tesla {
+#arms .arm {
+  stroke: #ff8c36;
+}
+
+.cell path {
+  fill: #ffd44a;
+  stroke: #ff8c36;
+}
+
+#center {
+  -webkit-animation-name: centerTwist;
+          animation-name: centerTwist;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  transform-box: fill-box;
+  fill: #3f3025;
+}
+
+#tesla_1_ {
   -webkit-filter: drop-shadow(10px 5px 5px red);
           filter: drop-shadow(10px 5px 5px red);
 }
 
 @-webkit-keyframes centerTwist {
   25% {
-    -webkit-transform: rotateY(-10deg) rotateX(-10deg);
-            transform: rotateY(-10deg) rotateX(-10deg);
+    -webkit-transform: rotateY(-5deg) rotateX(-5deg);
+            transform: rotateY(-5deg) rotateX(-5deg);
   }
   75% {
-    -webkit-transform: rotateY(10deg) rotateX(-10deg);
-            transform: rotateY(10deg) rotateX(-10deg);
+    -webkit-transform: rotateY(5deg) rotateX(-5deg);
+            transform: rotateY(5deg) rotateX(-5deg);
   }
   to {
     -webkit-transform: initial;
@@ -377,6 +178,21 @@ svg {
 
 @keyframes centerTwist {
   25% {
+    -webkit-transform: rotateY(-5deg) rotateX(-5deg);
+            transform: rotateY(-5deg) rotateX(-5deg);
+  }
+  75% {
+    -webkit-transform: rotateY(5deg) rotateX(-5deg);
+            transform: rotateY(5deg) rotateX(-5deg);
+  }
+  to {
+    -webkit-transform: initial;
+            transform: initial;
+  }
+}
+
+@-webkit-keyframes panelTwist {
+  25% {
     -webkit-transform: rotateY(-10deg) rotateX(-10deg);
             transform: rotateY(-10deg) rotateX(-10deg);
   }
@@ -390,29 +206,14 @@ svg {
   }
 }
 
-@-webkit-keyframes panelTwist {
-  25% {
-    -webkit-transform: rotateY(-20deg) rotateX(-20deg);
-            transform: rotateY(-20deg) rotateX(-20deg);
-  }
-  75% {
-    -webkit-transform: rotateY(20deg) rotateX(-20deg);
-            transform: rotateY(20deg) rotateX(-20deg);
-  }
-  to {
-    -webkit-transform: initial;
-            transform: initial;
-  }
-}
-
 @keyframes panelTwist {
   25% {
-    -webkit-transform: rotateY(-20deg) rotateX(-20deg);
-            transform: rotateY(-20deg) rotateX(-20deg);
+    -webkit-transform: rotateY(-10deg) rotateX(-10deg);
+            transform: rotateY(-10deg) rotateX(-10deg);
   }
   75% {
-    -webkit-transform: rotateY(20deg) rotateX(-20deg);
-            transform: rotateY(20deg) rotateX(-20deg);
+    -webkit-transform: rotateY(10deg) rotateX(-10deg);
+            transform: rotateY(10deg) rotateX(-10deg);
   }
   to {
     -webkit-transform: initial;
