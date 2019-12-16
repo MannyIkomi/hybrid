@@ -156,16 +156,16 @@ const growFlower = new ScrollMagic.Scene({
 })
   .setTween(
     new TimelineMax()
-      .fromTo(
-        document.querySelector('#seed_2_'),
-        2,
-        {
-          // transform: 'rotateX(-90deg)',
-          opacity: 0.75,
-          transformOrigin: 'center'
-        },
-        { opacity: 1 }
-      )
+      // .fromTo(
+      //   document.querySelector('#seed_2_'),
+      //   2,
+      //   {
+      //     // transform: 'rotateX(-90deg)',
+      //     opacity: 0.75,
+      //     transformOrigin: 'center'
+      //   },
+      //   { opacity: 1 }
+      // )
       .fromTo(
         document.querySelector('#flower'),
         1,
