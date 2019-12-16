@@ -154,7 +154,7 @@ svg {
   transform-box: fill-box;
   transform-origin: center center;
 
-  // animation-name: panelTwist;
+  animation-name: panelTwist;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -168,7 +168,7 @@ svg {
 
 #arms {
   // transform: scale(0);
-  transform-box: fill-box;
+  // transform-box: fill-box;
   transform-origin: center;
   .arm {
     stroke: $orange;
@@ -191,7 +191,7 @@ svg {
   animation-fill-mode: forwards;
   animation-direction: alternate;
 
-  transform-box: fill-box;
+  // transform-box: fill-box;
   transform-origin: center;
   fill: $dirt;
 }

@@ -110,6 +110,8 @@ svg {
   transform-box: fill-box;
   -webkit-transform-origin: center center;
           transform-origin: center center;
+  -webkit-animation-name: panelTwist;
+          animation-name: panelTwist;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
@@ -123,7 +125,6 @@ svg {
 }
 
 #arms {
-  transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
 }
@@ -146,7 +147,6 @@ svg {
           animation-fill-mode: forwards;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  transform-box: fill-box;
   -webkit-transform-origin: center;
           transform-origin: center;
   fill: #3f3025;
