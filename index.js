@@ -1,12 +1,20 @@
-const controller = new ScrollMagic.Controller()
+const ctrl = new ScrollMagic.Controller()
 
-const roots = document.querySelector('.roots')
-console.log(roots)
+const pathLength = pathElement => pathElement.getTotalLength()
+// const multipleOf100 = (frame = 0) => frame * 100
+// const viewportPercentageString = (number = 0) => `${number}%`
+
+const TOTALFRAMES = '600%' // viewport scroll relative duration
+const FRAME1 = '100%'
+const FRAME2 = '200%'
+const FRAME3 = '300%'
+const FRAME4 = '400%'
+const FRAME5 = '500%'
 
 function hideWithDashOffset(pathSelector) {
   const path = document.querySelector(pathSelector)
 
-  const strokeLength = path.getTotalLength()
+  const strokeLength = pathLength(path)
   path.setAttribute('stroke-dasharray', strokeLength)
   path.setAttribute('stroke-dashoffset', strokeLength)
 
@@ -16,39 +24,88 @@ function hideWithDashOffset(pathSelector) {
 const waterRoot = hideWithDashOffset('#water_1_')
 const powerRoot = hideWithDashOffset('#power_1_')
 const chloraRoot = hideWithDashOffset('#chlora_1_')
-const seedStem = hideWithDashOffset('#power_stem_1_')
+const seedStem = document.querySelector('#power_stem_1_')
+const sky = document.querySelector('.sky')
+const metalPot = document.querySelector('.pot.metal')
+const hybrid = document.querySelector('svg')
 
-const rootTween = new TimelineMax().to(
+console.log(hybrid)
+
+const rootingTimeline = new TimelineMax().fromTo(
   [waterRoot, powerRoot, chloraRoot],
-  0.9,
+  1, // duration
+  {
+    strokeWidth: 1
+  },
   {
     strokeDashoffset: 0,
-    ease: Linear.easeNone,
-    'stroke-width': 6
+    ease: Linear.easeIn,
+    strokeWidth: 6
   }
 )
 
-const viewboxPin = new ScrollMagic.Scene({ triggerHook: 0 })
-  .duration('600%')
+const viewboxPin = new ScrollMagic.Scene({
+  triggerHook: 0,
+  duration: TOTALFRAMES // 6 times the viewport scrolling height
+})
   .setPin('#viewbox.pin')
-  // .setTween(rootTween)
-  .addIndicators({ name: 'pin test' })
-  .addTo(controller)
+  .addIndicators({ name: 'pin viewbox' })
+  .addTo(ctrl)
 
 const growRoots = new ScrollMagic.Scene({
   triggerHook: 0,
   tweenChanges: true,
-  duration: '100%'
+  duration: FRAME2
 })
-  .setTween(rootTween)
-  .addIndicators({ name: 'root tween' })
-  .addTo(controller)
+  .setTween(rootingTimeline)
+  .addIndicators({ name: 'grow root' })
+  .addTo(ctrl)
 
-console.log(rootTween)
+const growHeight = new ScrollMagic.Scene({
+  triggerHook: 0,
+  tweenChanges: true,
+  duration: FRAME3
+})
+  .setTween(TweenLite.fromTo(hybrid, 2, { yPercent: 55 }, { yPercent: 0 }))
+  .addIndicators({ name: 'grow height' })
+  .addTo(ctrl)
 
-/* 
-root
-  water
-  power
-  chlora
-*/
+const receedSeedStem = new ScrollMagic.Scene({
+  triggerHook: 0,
+  tweenChanges: true,
+  duration: '50%'
+})
+  .setTween(
+    TweenLite.fromTo(
+      seedStem,
+      1,
+      {},
+      {
+        strokeDasharray: pathLength(seedStem),
+        strokeDashoffset: pathLength(seedStem)
+      }
+    )
+  )
+  .addIndicators({ name: 'receed stem' })
+  .addTo(ctrl)
+
+// transform: translateY(55%);
+const increaseSky = new ScrollMagic.Scene({
+  triggerHook: 0,
+  duration: FRAME3, // end phase1 dirt completely gone
+  tweenChanges: true
+})
+  .setTween(TweenLite.fromTo(sky, 1, { height: '33vh' }, { height: '100vh' }))
+  .addIndicators({ name: 'lower dirt' })
+  .addTo(ctrl)
+
+const removePot = new ScrollMagic.Scene({
+  triggerHook: 0,
+  tweenChanges: true,
+  duration: FRAME2
+})
+  .setTween(
+    TweenLite.fromTo(metalPot, 1, { borderWidth: '2rem' }, { borderWidth: 0 })
+  )
+  .addIndicators({ name: 'remove pot' })
+  .addTo(ctrl)

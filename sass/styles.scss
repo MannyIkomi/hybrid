@@ -22,23 +22,23 @@ body {
 }
 
 svg {
-  // min-width: 100%;
-  // min-height: 100%;
-
   position: absolute;
   bottom: 0;
-  // #hybrid {
-  // }
+
+  min-width: calc(
+    320px - 4rem
+  ); // how to keep svg from moving vertically when scaled
 }
 
 .dirt {
   background-color: $dirt;
+  height: 100%;
 
   // fill: $dirt;
 }
 
 #viewbox {
-  display: flex;
+  // display: flex;
   flex-direction: column;
   justify-content: flex-end;
   // align-items: flex-end;
@@ -49,26 +49,20 @@ svg {
 
   .sky {
     background-color: $sky;
-    height: 100%;
+    height: 33vh;
     width: 100%;
   }
 
   .pot {
-    .dirt {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-
-      // animation-name: shortenGround;
-      animation-duration: $total-timeline;
-      animation-iteration-count: infinite;
-    }
+    // .dirt {
+    // }
 
     .metal {
       position: relative;
       // display: flex;
       // justify-content: center;
-      border: 2rem solid;
+      border-style: solid;
+      border-width: 1rem;
       border-top: 0;
 
       height: 100px;
@@ -246,7 +240,7 @@ svg {
   }
 }
 
-.bloom {
+.flower {
   position: absolute;
   left: 0;
   bottom: 225px;
