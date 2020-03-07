@@ -4,6 +4,11 @@ $chlora: #6a8433;
 $solar: #ffd44a;
 $orange: #ff8c36;
 
+$orangeId: #ff5e00;
+$darkGrayId: #262626;
+$muteGrayId: #f2f2f2;
+$medGrayId: #808080;
+
 $seed: #004124;
 $dirt: #3f3025;
 $sky: #86bfee;
@@ -15,7 +20,76 @@ body {
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'fira-mono', monospace;
+  // letter-spacing: -0.1rem;
+  color: inherit;
+  hanging-punctuation: first last;
+  line-height: 1.2;
+}
+
+a,
+p,
+ul,
+ol,
+li,
+span {
+  font-family: 'fira-sans', 'Trebuchet MS', 'Lucida Sans Unicode',
+    'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.4;
+  color: inherit;
+  font-variant-numeric: proportional-nums ordinal;
+  hanging-punctuation: first last;
+}
+
+#exit {
+  h1,
+  h2,
+  h3,
+  h4,
+  a,
+  p,
+  ul,
+  li,
+  ol,
+  span {
+    color: $muteGrayId;
+  }
+  h1 {
+    color: $orangeId;
+  }
+  p {
+    margin: 1rem 0;
+  }
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: $orangeId;
+    &:hover {
+      color: $orangeId;
+    }
+  }
+  .disclaim {
+    font-size: 0.66rem;
+    color: $orangeId;
+  }
+}
+
+.viewport {
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
 footer {
+  background-color: $darkGrayId;
   display: flex;
   height: 50vh;
 
@@ -35,9 +109,7 @@ svg {
   bottom: 0;
   left: 0;
 
-  min-width: calc(
-    320px - 4rem
-  ); // how to keep svg from moving vertically when scaled
+  min-width: calc(320px - 4rem);
 }
 
 .dirt {
